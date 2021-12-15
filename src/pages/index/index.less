@@ -1,4 +1,30 @@
+@import "../../common/color.less";
+
 .index {
-  flex-direction: column;
-  width: 100%;
+  .bottom-tab {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 180rpx;
+    display: flex;
+    justify-content: space-around;
+    background-color: @main;
+    .tab-item {
+      width: 100rpx;
+      height: 150rpx;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 30rpx;
+      color: @inactive;
+      image {
+        width: 80rpx;
+        height: 80rpx;
+      }
+      &.active {
+        color: @active;
+      }
+    }
+  }
 }
