@@ -1,0 +1,13 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "hust-helper",
+  "description": "华科帮帮忙，一个校园互助小程序",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": true,
+    "es6": false,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
