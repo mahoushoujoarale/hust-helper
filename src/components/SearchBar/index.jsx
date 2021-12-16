@@ -1,18 +1,19 @@
 import { Component } from 'react'
-import { View, Text } from '@tarojs/components'
+import { View, Image, Input } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import './index.less'
+import search from "../../assets/search.png";
 
 export default class SearchBar extends Component {
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     console.log(this.props, nextProps)
   }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { }
+  componentDidShow() { }
 
-  componentDidHide () { }
+  componentDidHide() { }
 
   toSearchPage() {
     Taro.navigateTo({
@@ -20,13 +21,18 @@ export default class SearchBar extends Component {
     })
   }
 
-  render () {
+  state = {
+    searchPlaceholder: "二手计算器"
+  }
+
+  render() {
     return (
       <View
         className='search-bar'
         onClick={this.toSearchPage}
       >
-        <View><Text>search-bar</Text></View>
+        <Image src={search} />
+        <Input type='text' placeholder={this.state.searchPlaceholder} placeholderStyle={"color: #d5d5d5; font-size: 12Px"} />
       </View>
     )
   }

@@ -1,0 +1,68 @@
+@import "../../../common/color.less";
+
+.collection-page-card {
+  width: 100%;
+  padding: 15Px 10Px;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 8Px;
+  margin-bottom: 15Px;
+  box-shadow: 0Px 2Px 5Px 0Px #eeeeee;
+
+  &>.top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &>.user-photo {
+      width: 66Px;
+      height: 66Px;
+      border-radius: 72Px;
+      background-image: url("../../../assets/avatar.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &>.content-box {
+      flex: 1;
+      min-height: 56Px;
+      display: flex;
+      flex-direction: column;
+      margin-left: 10Px;
+      justify-content: space-between;
+
+      &>.name {
+        color: @inactive;
+        font-size: 16Px;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &>.tags {
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &>.tag {
+          margin-right: 15Px;
+          color: @main;
+          font-size: 14Px;
+        }
+      }
+    }
+  }
+
+  &>.preview-pic {
+    width: 200Px;
+    height: 120Px;
+    display: block;
+    margin-top: 10Px;
+    margin-left: 70Px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}

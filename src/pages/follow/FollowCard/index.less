@@ -1,0 +1,49 @@
+@import "../../../common/color.less";
+
+.follow-page-card {
+  width: 100%;
+  display: flex;
+  padding: 15Px 10Px;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: white;
+  border-radius: 8Px;
+  margin-bottom: 15Px;
+  box-shadow: 0Px 2Px 5Px 0Px #eeeeee;
+
+  &>.user-photo {
+    width: 66Px;
+    height: 66Px;
+    border-radius: 72Px;
+    background-image: url("../../../assets/avatar.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &>.content-box {
+    flex: 1;
+    height: 56Px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10Px;
+    justify-content: space-between;
+
+    &>.name {
+      color: @inactive;
+      font-size: 18Px;
+      font-weight: bold;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &>.gender {
+      width: 24Px;
+      height: 24Px;
+      display: block;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}

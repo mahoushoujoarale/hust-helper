@@ -1,0 +1,120 @@
+@import "../../../common/color.less";
+
+.notice-page-card {
+  width: 100%;
+  padding: 20Px 30Px 10Px;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: white;
+  border-radius: 8Px;
+  margin-bottom: 15Px;
+  box-shadow: 0Px 2Px 5Px 0Px #eeeeee;
+
+  &>.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20Px;
+
+    &>.type {
+      color: @inactive;
+      font-size: 20Px;
+      font-weight: bold;
+    }
+
+    &>.price {
+      display: flex;
+      align-items: center;
+
+      &>.price-icon {
+        display: block;
+        width: 24Px;
+        height: 24Px;
+        margin-right: 1Px;
+      }
+
+      &>.origin-price {
+        color: rgba(136, 136, 136, 100);
+        font-size: 12Px;
+        padding: 0 2Px;
+        height: 28Px;
+        line-height: 28Px;
+        box-sizing: border-box;
+        border: 1Px solid #DDFFBC;
+        background-color: #f7f7f7;
+        text-decoration: line-through;
+      }
+
+      &>.current-price {
+        color: #feffde;
+        background-color: #91c788;
+        border: 1Px solid #ddffbc;
+        font-size: 20Px;
+        height: 28Px;
+        box-sizing: border-box;
+        line-height: 28Px;
+        padding: 0 18Px;
+      }
+    }
+  }
+
+  &>.title {
+    font-size: 14Px;
+    font-weight: bold;
+    color: #101010;
+    margin-bottom: 10Px;
+  }
+
+  &>.content {
+    margin-bottom: 15Px;
+    position: relative;
+
+    &>.content-wrapper {
+      font-size: 14Px;
+      line-height: 20Px;
+      max-height: 100Px;
+      color: #101010;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &>.find-more {
+      position: absolute;
+      bottom: -10Px;
+      right: 10Px;
+      font-size: 14Px;
+      color: @main;
+    }
+  }
+
+  &>.preview-pic {
+    display: block;
+    width: 133Px;
+    height: 101Px;
+  }
+
+  &>.buttons {
+    display: flex;
+    width: 100%;
+    margin-top: 10Px;
+    justify-content: flex-end;
+
+    &>.button {
+      display: flex;
+      margin-right: 10Px;
+
+      &>.icon {
+        width: 16Px;
+        height: 16Px;
+        display: block;
+        margin-right: 5Px;
+      }
+
+      &>.count {
+        font-size: 12Px;
+        color: #888888;
+      }
+    }
+  }
+}

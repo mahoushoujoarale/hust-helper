@@ -1,0 +1,102 @@
+@import "../../common/color.less";
+
+.search {
+  width: 90%;
+  margin: 0 auto;
+
+  &>.search-header {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+
+    &>.header-search-bar {
+      height: 34Px;
+      padding: 5Px 15Px;
+      flex: 1;
+      box-sizing: border-box;
+      border-radius: 16Px;
+      display: flex;
+      background-color: rgba(248, 248, 248, 100);
+
+      &>Image {
+        width: 20Px;
+        height: 20Px;
+        margin-right: 10Px;
+        transform: translateY(1Px);
+      }
+
+      &>Input {
+        width: 100%;
+      }
+    }
+
+
+    &>.search-button {
+      color: rgba(82, 115, 77, 100);
+      font-size: 13Px;
+      margin-left: 15Px;
+    }
+  }
+
+  &>.search-hot,
+  &>.search-history {
+    margin-top: 50Px;
+    width: 100%;
+
+    &>.title {
+      height: 23Px;
+      color: rgba(82, 115, 77, 100);
+      font-size: 16Px;
+      font-weight: bold;
+      font-family: PingFangSC-bold;
+      margin-bottom: 20Px;
+    }
+  }
+
+  &>.search-hot {
+    &>.tags {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      &>.tag {
+        color: rgba(255, 255, 255, 100);
+        font-size: 14Px;
+        padding: 5Px 10Px;
+        border-radius: 4Px;
+        margin: 5Px 10Px;
+        background-color: #91C788;
+      }
+    }
+  }
+
+  &>.search-history {
+    &>.title {
+      display: flex;
+      justify-content: space-between;
+
+      &>.remove {
+        width: 16Px;
+        Height: 16Px;
+        background-image: url("../../assets/dele.png");
+        background-size: cover;
+      }
+    }
+
+    &>.tags {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      &>.tag {
+        color: #91C788;
+        font-size: 14Px;
+        padding: 5Px 10Px;
+        border-radius: 4Px;
+        margin: 5Px 10Px;
+        background-color: #F6F6F6;
+      }
+    }
+  }
+}
