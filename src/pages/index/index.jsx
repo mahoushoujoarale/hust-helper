@@ -24,11 +24,11 @@ class Index extends Component {
     console.log(this.props, nextProps);
   }
 
-  componentWillUnmount() { }
+  componentWillUnmount() {}
 
-  componentDidShow() { }
+  componentDidShow() {}
 
-  componentDidHide() { }
+  componentDidHide() {}
 
   handleTabClick(index) {
     this.setState({
@@ -51,6 +51,15 @@ class Index extends Component {
             <SearchBar></SearchBar>
             <Banner></Banner>
             <MiddleNav></MiddleNav>
+            <View
+              onClick={() =>
+                Taro.navigateTo({
+                  url: "/pages/login/index"
+                })
+              }
+            >
+              login
+            </View>
           </View>
         )}
         {activeTabIndex === 2 && <Mine></Mine>}

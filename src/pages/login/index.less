@@ -1,0 +1,55 @@
+@import "../../common/color.less";
+
+.login-page {
+  width: 80%;
+  margin: 0 auto;
+
+  &>.title {
+    margin: 50Px 0;
+
+    &>Text {
+      display: block;
+      color: #101010;
+      font-size: 25Px;
+      line-height: 37Px;
+    }
+  }
+
+  &>.form {
+    &>Text {
+      color: #666666;
+      display: block;
+      font-size: 18Px;
+      margin: 20Px 0 12Px;
+    }
+
+    &>.input-wrapper {
+      position: relative;
+
+      &>Input {
+        font-size: 12Px;
+        height: 17Px;
+        width: 80%;
+      }
+
+      &>.icon {
+        width: 14Px;
+        height: 14Px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+
+    &>.login-button {
+      width: 100%;
+      text-align: center;
+      padding: 12Px 0;
+      background-color: #52734D;
+      color: white;
+      border-radius: 24Px;
+      margin-top: 80Px;
+    }
+  }
+}

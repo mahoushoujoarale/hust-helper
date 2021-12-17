@@ -1,6 +1,6 @@
 @import "../../../common/color.less";
 
-.notice-page-card {
+.lost-page-card {
   width: 100%;
   padding: 20Px 30Px 10Px;
   box-sizing: border-box;
@@ -13,49 +13,52 @@
   &>.header {
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 20Px;
 
-    &>.type {
-      color: @inactive;
-      font-size: 20Px;
-      font-weight: bold;
+    &>.user-photo {
+      display: block;
+      width: 40Px;
+      height: 40Px;
+      border-radius: 50%;
     }
 
-    &>.price {
+    &>.user-info {
+      flex: 1;
+      height: 40Px;
       display: flex;
-      align-items: center;
+      margin-left: 10Px;
+      margin-right: 45Px;
+      flex-direction: column;
+      justify-content: space-between;
 
-      &>.price-icon {
-        display: block;
-        width: 24Px;
-        height: 24Px;
-        margin-right: 1Px;
+      &>.user-name {
+        color: @inactive;
+        font-size: 14Px;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
-      &>.origin-price {
-        color: rgba(136, 136, 136, 100);
+      &>.user-fans {
+        color: @main;
         font-size: 12Px;
-        padding: 0 2Px;
-        height: 28Px;
-        line-height: 28Px;
-        box-sizing: border-box;
-        border: 1Px solid #DDFFBC;
-        background-color: #f7f7f7;
-        text-decoration: line-through;
+        width: 100%;
+        text-align: end;
       }
+    }
 
-      &>.current-price {
-        color: #feffde;
-        background-color: #91c788;
-        border: 1Px solid #ddffbc;
-        font-size: 20Px;
-        height: 28Px;
-        box-sizing: border-box;
-        line-height: 28Px;
-        padding: 0 18Px;
-      }
+    &>.follow-button {
+      color: #feffde;
+      background-color: #91c788;
+      border: 1Px solid #ddffbc;
+      font-size: 14Px;
+      height: 34Px;
+      box-sizing: border-box;
+      line-height: 34Px;
+      padding: 0 18Px;
+      border-radius: 20Px;
     }
   }
 
@@ -88,21 +91,30 @@
     }
   }
 
-  &>.preview-pic {
-    display: block;
-    width: 133Px;
-    height: 101Px;
+  &>.position {
+    display: flex;
+    margin-top: 40Px;
+
+    &>.icon {
+      display: block;
+      width: 20Px;
+      height: 20Px;
+      margin-right: 10Px;
+    }
+
+    &>.position-content {
+      color: @inactive;
+      font-size: 16Px;
+    }
   }
 
   &>.buttons {
     display: flex;
     width: 100%;
-    margin-top: 10Px;
     justify-content: flex-end;
 
     &>.button {
       display: flex;
-      margin-right: 10Px;
 
       &>.icon {
         width: 16Px;

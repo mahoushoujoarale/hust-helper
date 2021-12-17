@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "hust-helper",
   "description": "华科帮帮忙，一个校园互助小程序",
-  "appid": "touristappid",
+  "appid": "wx5c9de703a02a064e",
   "setting": {
     "urlCheck": false,
     "es6": false,
@@ -30,7 +30,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],

@@ -1,29 +1,29 @@
-import { Component } from 'react'
-import { View, Text, Image, Swiper, SwiperItem } from '@tarojs/components'
-import './index.less'
+import { Component } from "react";
+import { View, Text, Image, Swiper, SwiperItem } from "@tarojs/components";
+import "./index.less";
 
-import BannerImg from '../../assets/banner.png'
+import BannerImg from "../../assets/banner.png";
 
 export default class Banner extends Component {
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+  componentWillReceiveProps(nextProps) {
+    console.log(this.props, nextProps);
   }
 
-  componentWillUnmount () { }
+  componentWillUnmount() {}
 
-  componentDidShow () { }
+  componentDidShow() {}
 
-  componentDidHide () { }
+  componentDidHide() {}
 
-  render () {
+  render() {
     return (
       <Swiper
-        className='banner'
-        indicatorColor='#fff'
-        indicatorActiveColor='#fff'
+        className="banner"
+        indicatorColor="#fff"
+        indicatorActiveColor="#fff"
         circular
         indicatorDots
-        autoplay 
+        autoplay
       >
         <SwiperItem>
           <Image src={BannerImg}></Image>
@@ -35,7 +35,6 @@ export default class Banner extends Component {
           <Image src={BannerImg}></Image>
         </SwiperItem>
       </Swiper>
-    )
+    );
   }
 }
-

@@ -1,8 +1,8 @@
 @import "../../../common/color.less";
 
-.notice-page-card {
+.trade-page-card {
   width: 100%;
-  padding: 20Px 30Px 10Px;
+  padding: 20Px 15Px 10Px;
   box-sizing: border-box;
   align-items: center;
   background-color: white;
@@ -17,10 +17,37 @@
     align-items: center;
     margin-bottom: 20Px;
 
-    &>.type {
-      color: @inactive;
-      font-size: 20Px;
-      font-weight: bold;
+    &>.user-photo {
+      display: block;
+      width: 40Px;
+      height: 40Px;
+      border-radius: 50%;
+    }
+
+    &>.user-info {
+      flex: 1;
+      height: 40Px;
+      display: flex;
+      margin-left: 10Px;
+      margin-right: 25Px;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &>.user-name {
+        color: @inactive;
+        font-size: 14Px;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &>.user-fans {
+        color: @main;
+        font-size: 12Px;
+        width: 100%;
+        text-align: end;
+      }
     }
 
     &>.price {
