@@ -2,6 +2,7 @@ import { Component } from "react";
 import { View, Text, Image } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import comment from "../../../assets/comment.png";
+import position from "../../../assets/position.png";
 
 import "./index.less";
 
@@ -42,7 +43,7 @@ class Index extends Component {
           </view>
         </view>
         <view className="position">
-          {/* <Image className="icon" src={position} /> */}
+          <Image className="icon" src={position} />
           <view className="position-content">{this.props.info.position}</view>
         </view>
         <view className="buttons">

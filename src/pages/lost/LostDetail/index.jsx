@@ -1,11 +1,10 @@
 import { Component } from "react";
 import { View, Text, Image } from "@tarojs/components";
-import star from "../../../assets/star.png";
 import comment from "../../../assets/comment.png";
-import like from "../../../assets/good-job.png";
 import caution from "../../../assets/caution.png";
 import avatar from "../../../assets/avatar.png";
 import Comment from "../../../components/Comment";
+import position from "../../../assets/position.png";
 
 import "./index.less";
 
@@ -63,7 +62,7 @@ class Index extends Component {
             </view>
             <view className="content-bottom">
               <view className="position">
-                {/* <Image className="icon" src={position} /> */}
+                <Image className="icon" src={position} />
                 <view className="position-content">{this.state.position}</view>
               </view>
               <view className="report">

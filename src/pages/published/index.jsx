@@ -31,7 +31,7 @@ class Index extends Component {
       {
         content:
           "这里是文本，三开放竞赛很久哈赛佛湖戳赛ahdfkjhasdjkhflkjasdhfjlhsadfkjhsdjfh方框赛罕茯苓窘境带领反差赛季法令囧ad领翻领as单反零结案赛铃翻看赛灵泛神戳时偶尔扥红藕产妇戳记欧辰",
-        type: "二手交易",
+        type: "失物招领",
         title: "这里是标题",
         originPrice: 250,
         currentPrice: 90,
@@ -44,7 +44,7 @@ class Index extends Component {
       {
         content:
           "这里是文本，三开放竞赛很久哈赛佛湖戳赛神戳时偶尔扥红藕产妇戳记欧辰",
-        type: "二手交易",
+        type: "求助捞人",
         title: "这里是标题",
         originPrice: 250,
         currentPrice: 90,

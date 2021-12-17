@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { View, Text, Input, Image } from "@tarojs/components";
-import view from "../../assets/view.png";
+import visible from "../../assets/visible.png";
+import unvisible from "../../assets/unvisible.png";
 
 import "./index.less";
 
@@ -44,7 +45,7 @@ class Index extends Component {
             />
             <Image
               className="icon"
-              src={view}
+              src={this.state.passwordVisible ? visible : unvisible}
               onClick={() => {
                 this.setState({ passwordVisible: !this.state.passwordVisible });
                 console.log(1);

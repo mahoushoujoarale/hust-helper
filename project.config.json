@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "hust-helper",
   "description": "华科帮帮忙，一个校园互助小程序",
-  "appid": "wx5c9de703a02a064e",
+  "appid": "wxa715a74f4afded91",
   "setting": {
     "urlCheck": false,
     "es6": false,

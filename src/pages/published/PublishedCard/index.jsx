@@ -1,9 +1,11 @@
 import { Component } from "react";
 import { View, Text, Image } from "@tarojs/components";
+import Taro from "@tarojs/taro";
 import price from "../../../assets/price.png";
 import star from "../../../assets/star.png";
 import comment from "../../../assets/comment.png";
 import like from "../../../assets/good-job.png";
+import { getUrlByType } from "../../../utils";
 
 import "./index.less";
 
@@ -34,7 +36,16 @@ class Index extends Component {
         <view className="title">{this.props.info.title}</view>
         <view className="content">
           <view className="content-wrapper">{this.props.info.content}</view>
-          <view className="find-more">查看更多</view>
+          <view
+            className="find-more"
+            onClick={() =>
+              Taro.navigateTo({
+                url: getUrlByType(this.props.info.type)
+              })
+            }
+          >
+            查看更多
+          </view>
         </view>
         {this.props.info.imageUrl ? (
           <Image className="preview-pic" src={this.props.info.imageUrl} />

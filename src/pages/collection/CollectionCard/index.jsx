@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { View, Text, Image } from "@tarojs/components";
+import Taro from "@tarojs/taro";
 
 import "./index.less";
 
@@ -16,7 +17,14 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="collection-page-card">
+      <View
+        className="collection-page-card"
+        onClick={() =>
+          Taro.navigateTo({
+            url: "/pages/trade/TradeDetail/index"
+          })
+        }
+      >
         <view className="top">
           <view
             className="user-photo"
