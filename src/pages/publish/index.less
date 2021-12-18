@@ -1,0 +1,132 @@
+@import "../../common/color.less";
+
+.publish-page {
+  width: 100%;
+  background-color: #f7f7f7;
+  height: 100vh;
+
+  &>.detail-box {
+    width: 100%;
+    padding: 15Px;
+    box-sizing: border-box;
+    background-color: white;
+
+    &>.title {
+      margin: 15Px 0;
+      color: @inactive;
+      font-size: 16Px;
+      font-weight: bold;
+    }
+
+    &>.content {
+      width: 100%;
+      height: 160Px;
+      overflow: scroll;
+      font-size: 12Px;
+      color: #1b1b1b;
+      line-height: 20Px;
+    }
+  }
+
+  &>.select-box {
+    margin: 15Px 0 35Px;
+    width: 100%;
+    height: 330Px;
+    padding: 15Px;
+    position: relative;
+    background-color: white;
+    box-sizing: border-box;
+
+    &>.title {
+      margin: 10Px 0 15Px;
+      font-size: 16Px;
+      color: @inactive;
+    }
+
+    &>.tags {
+      width: 100%;
+      display: flex;
+      margin: 20Px 0;
+
+      &>.tag {
+        padding: 0 10Px;
+        color: #91C788;
+        font-size: 14Px;
+        margin-right: 20Px;
+        height: 28Px;
+        line-height: 28Px;
+        background-color: #f6f6f6;
+      }
+    }
+
+    &>.option-box {
+      width: 100%;
+
+      &>.trade-option {
+        width: 100%;
+
+        &>.trade-item {
+          width: 100%;
+          height: 44Px;
+          display: flex;
+          font-size: 16Px;
+          color: @inactive;
+          justify-content: space-between;
+          align-items: center;
+
+          &>Input {
+            width: 60Px;
+            font-size: 16Px;
+            color: @inactive;
+          }
+
+          .picker {
+            margin-right: 20Px;
+            font-size: 16Px;
+            height: 20Px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            color: @inactive;
+
+            &>.icon {
+              width: 20Px;
+              height: 20Px;
+            }
+          }
+        }
+      }
+
+      &>.lost-option {
+        width: 100%;
+
+        &>.title {
+          font-size: 16Px;
+          color: @inactive;
+          margin: 15Px 0;
+        }
+
+        &>Input {
+          font-size: 16Px;
+          color: @inactive;
+          border-bottom: 1Px solid rgba(187, 187, 187, 100);
+          ;
+        }
+      }
+    }
+
+    &>.publish-button {
+      width: 94%;
+      margin: 20Px auto 0;
+      text-align: center;
+      height: 46Px;
+      line-height: 46Px;
+      color: white;
+      font-size: 18Px;
+      border-radius: 8Px;
+      background-color: @inactive;
+      position: absolute;
+      bottom: 15Px;
+    }
+  }
+}

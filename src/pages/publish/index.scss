@@ -1,0 +1,10 @@
+@import "~taro-ui/dist/style/components/image-picker.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+
+.at-image-picker__item{
+  background-color: #edeff4;
+
+  .add-bar {
+    width: 24Px;
+  }
+}

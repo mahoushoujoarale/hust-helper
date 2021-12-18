@@ -58,7 +58,7 @@ class Index extends Component {
                 })
               }
             >
-              login
+              loginButton
             </View>
           </View>
         )}

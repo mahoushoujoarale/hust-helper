@@ -46,6 +46,11 @@ class Index extends Component {
           <Image className="icon" src={position} />
           <view className="position-content">{this.props.info.position}</view>
         </view>
+        {this.props.info.imageUrl ? (
+          <Image className="preview-pic" src={this.props.info.imageUrl} />
+        ) : (
+          <view style={{ height: "30Px" }}></view>
+        )}
         <view className="buttons">
           <view className="button">
             <Image className="icon" src={comment} />
