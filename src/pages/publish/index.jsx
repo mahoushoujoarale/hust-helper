@@ -7,9 +7,9 @@ import "./index.less";
 import "./index.scss";
 
 class Index extends Component {
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(this.props, nextProps);
+  // }
 
   componentWillUnmount() {}
 
@@ -18,8 +18,10 @@ class Index extends Component {
   componentDidHide() {}
 
   state = {
-    title: "时间简史",
-    content: `在当当网上购入，是霍金先生的一本著作。虽然霍金先生把物理学变得简单了，但是碍于专业知识不够，就没有阅读下去，闲置很久了，所以想出给一个想读它的人。`,
+    // title: "时间简史",
+    // content: `在当当网上购入，是霍金先生的一本著作。虽然霍金先生把物理学变得简单了，但是碍于专业知识不够，就没有阅读下去，闲置很久了，所以想出给一个想读它的人。`,
+    title: '',
+    content: '',
     tag: "二手交易",
     tradeInfo: {
       originPrice: 56,
@@ -34,19 +36,44 @@ class Index extends Component {
     pictures: []
   };
 
+  handlePublish() {
+    console.log('publish', this.state)
+
+  }
+
+  handleChangeTitle = (e) => {
+    this.setState({
+      title: e.detail.value
+    })
+  }
+
+  handleChangeContent = (e) => {
+    this.setState({
+      content: e.detail.value
+    })
+  }
+
   render() {
+    const {title, content} = this.state
+
     return (
-      <View className="publish-page">
-        <view className="detail-box">
-          <view className="title">
+      <View className='publish-page'>
+        <view className='detail-box'>
+          <view className='title'>
             <Input
-              type="text"
-              placeholder="请输入发布标题"
-              placeholderStyle="font-weight: normal"
+              value={title}
+              onInput={this.handleChangeTitle}
+              type='text'
+              placeholder='请输入发布标题'
+              placeholderStyle='font-weight: normal'
             />
           </view>
-          <view className="content">
-            <Textarea placeholder="请输入发布内容" />
+          <view className='content'>
+            <Textarea
+              value={content}
+              onInput={this.handleChangeContent}
+              placeholder='请输入发布内容'
+            />
           </view>
           <AtImagePicker
             files={this.state.pictures}
@@ -55,11 +82,11 @@ class Index extends Component {
             length={3}
           />
         </view>
-        <view className="select-box">
-          <view className="title">添加标签#</view>
-          <view className="tags">
+        <view className='select-box'>
+          <view className='title'>添加标签#</view>
+          <view className='tags'>
             <view
-              className="tag"
+              className='tag'
               style={{
                 backgroundColor: this.state.tag === "二手交易" ? "#ddffbc" : ""
               }}
@@ -68,7 +95,7 @@ class Index extends Component {
               二手交易
             </view>
             <view
-              className="tag"
+              className='tag'
               style={{
                 backgroundColor: this.state.tag === "失物招领" ? "#ddffbc" : ""
               }}
@@ -77,7 +104,7 @@ class Index extends Component {
               失物招领
             </view>
             <view
-              className="tag"
+              className='tag'
               style={{
                 backgroundColor: this.state.tag === "求助捞人" ? "#ddffbc" : ""
               }}
@@ -86,21 +113,21 @@ class Index extends Component {
               求助捞人
             </view>
           </view>
-          <view className="option-box">
+          <view className='option-box'>
             {this.state.tag === "二手交易" ? (
-              <view className="trade-option">
-                <view className="trade-item">
+              <view className='trade-option'>
+                <view className='trade-item'>
                   原价
-                  <Input type="number" maxlength={6} placeholder="原价" />
+                  <Input type='number' maxlength={6} placeholder='原价' />
                 </view>
-                <view className="trade-item">
+                <view className='trade-item'>
                   现价
-                  <Input type="number" maxlength={6} placeholder="现价" />
+                  <Input type='number' maxlength={6} placeholder='现价' />
                 </view>
-                <view className="trade-item">
+                <view className='trade-item'>
                   几成新
                   <Picker
-                    mode="selector"
+                    mode='selector'
                     range={this.state.selector}
                     onChange={event =>
                       this.setState({
@@ -108,23 +135,23 @@ class Index extends Component {
                       })
                     }
                   >
-                    <view className="picker">
+                    <view className='picker'>
                       {this.state.selectorChecked}
-                      <Image className="icon" src={arrowDown} />
+                      <Image className='icon' src={arrowDown} />
                     </view>
                   </Picker>
                 </view>
               </view>
             ) : this.state.tag === "失物招领" ? (
-              <view className="lost-option">
-                <view className="title">丢失地点：</view>
-                <Input type="text" placeholder="请输入丢失地点" />
+              <view className='lost-option'>
+                <view className='title'>丢失地点：</view>
+                <Input type='text' placeholder='请输入丢失地点' />
               </view>
             ) : (
-              <view className="help-option"></view>
+              <view className='help-option'></view>
             )}
           </view>
-          <view className="publish-button">确认发布</view>
+          <view onClick={this.handlePublish.bind(this)} className='publish-button'>确认发布</view>
         </view>
       </View>
     );

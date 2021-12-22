@@ -59,9 +59,9 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="published-page">
-        <view className="title">我的发布</view>
-        <view className="content">
+      <View className='published-page'>
+        <view className='title'>我的发布</view>
+        <view className='content'>
           {this.state.publisheds.map((item, index) => (
             <PublishedCard key={index} info={item} />
           ))}

@@ -23,14 +23,14 @@ export default class MiddleNav extends Component {
     const urlTags = ["help", "lost", "trade"];
 
     return (
-      <View className="middle-nav">
+      <View className='middle-nav'>
         <View
           onClick={() =>
             Taro.navigateTo({
               url: `/pages/${urlTags[0]}/index`
             })
           }
-          className="nav-item"
+          className='nav-item'
         >
           <Image src={Help}></Image>
           <Text>{tags[0]}</Text>
@@ -41,7 +41,7 @@ export default class MiddleNav extends Component {
               url: `/pages/${urlTags[1]}/index`
             })
           }
-          className="nav-item"
+          className='nav-item'
         >
           <Image src={Lost}></Image>
           <Text>{tags[1]}</Text>
@@ -52,7 +52,7 @@ export default class MiddleNav extends Component {
               url: `/pages/${urlTags[2]}/index`
             })
           }
-          className="nav-item"
+          className='nav-item'
         >
           <Image src={Trade}></Image>
           <Text>{tags[2]}</Text>

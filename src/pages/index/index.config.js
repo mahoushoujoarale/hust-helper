@@ -1,3 +1,3 @@
 export default {
-  navigationBarTitleText: '详情'
+  navigationBarTitleText: '华科帮帮忙'
 }

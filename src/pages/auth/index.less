@@ -4,10 +4,10 @@
   width: 80%;
   margin: 0 auto;
 
-  &>.title {
+  .title {
     margin: 50Px 0;
 
-    &>Text {
+    Text {
       display: block;
       color: #101010;
       font-size: 25Px;
@@ -15,20 +15,20 @@
     }
   }
 
-  &>.form {
-    &>Text {
+  .form {
+    Text {
       color: #666666;
       display: block;
       font-size: 18Px;
       margin: 20Px 0 12Px;
     }
 
-    &>Input {
+    Input {
       font-size: 12Px;
       height: 17Px;
     }
 
-    &>.auth-button {
+    .auth-button {
       width: 100%;
       text-align: center;
       padding: 12Px 0;
@@ -37,5 +37,10 @@
       border-radius: 24Px;
       margin-top: 80Px;
     }
+  }
+
+  Text.prompt-wrongcode {
+    color: rgb(245, 58, 58);
+    font-size: 30px;
   }
 }

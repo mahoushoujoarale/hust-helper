@@ -29,7 +29,7 @@ export default class LoginWrap extends Component {
       Taro.getUserProfile({
         desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中
         success: (res) => {
-          console.log('success', res)
+          console.log('get user profile', res)
           this.props.asyncLogin(this.props.afterLogin, res);
         },
         fail: (err) => {

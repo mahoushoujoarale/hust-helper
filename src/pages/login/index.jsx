@@ -22,29 +22,29 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="login-page">
-        <view className="title">
+      <View className='login-page'>
+        <view className='title'>
           <Text>欢迎来到帮帮忙</Text>
         </view>
-        <view className="form">
-          <Text className="input-title">姓名</Text>
-          <view className="input-wrapper">
+        <view className='form'>
+          <Text className='input-title'>姓名</Text>
+          <view className='input-wrapper'>
             <Input
-              type="text"
-              placeholder="姓名/用户名"
-              placeholderStyle={"color: #cacaca"}
+              type='text'
+              placeholder='姓名/用户名'
+              placeholderStyle='color: #cacaca'
             />
           </view>
-          <Text className="input-title">密码</Text>
-          <view className="input-wrapper password">
+          <Text className='input-title'>密码</Text>
+          <view className='input-wrapper password'>
             <Input
-              type="text"
+              type='text'
               password={this.state.passwordVisible ? false : true}
-              placeholder="输入你的密码"
-              placeholderStyle={"color: #cacaca"}
+              placeholder='输入你的密码'
+              placeholderStyle='color: #cacaca'
             />
             <Image
-              className="icon"
+              className='icon'
               src={this.state.passwordVisible ? visible : unvisible}
               onClick={() => {
                 this.setState({ passwordVisible: !this.state.passwordVisible });
@@ -52,7 +52,7 @@ class Index extends Component {
               }}
             />
           </view>
-          <view className="login-button">登录/注册</view>
+          <view className='login-button'>登录/注册</view>
         </view>
       </View>
     );

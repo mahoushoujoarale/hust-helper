@@ -45,9 +45,9 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="lost-page">
-        <view className="title">失物招领</view>
-        <view className="content">
+      <View className='lost-page'>
+        <view className='title'>失物招领</view>
+        <view className='content'>
           {this.state.publisheds.map((item, index) => (
             <LostCard key={index} info={item} />
           ))}

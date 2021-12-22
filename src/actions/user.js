@@ -15,6 +15,28 @@ export const logout = () => {
 };
 
 // 异步的action
+export const asyncMailLogin = (afterLogin, info) => {
+  return (dispatch) => {
+    // fetchLogin(info).then((data) => {
+      // 设置时间戳，方便以后定位更新
+      console.log('info', info)
+      Taro.setStorageSync("time_stamp", new Date().getTime() / 1000);
+      // Taro.setStorageSync("openid", data.openid);
+
+      Taro.setStorage({
+        // key: "token",
+        // data: data.jwtToken,
+        key: "user_id", // TODO:
+        data: info.user_id
+      }).then(() => {
+        dispatch(login());
+        afterLogin();
+      });
+    // });
+  };
+};
+
+// 异步的action
 export const asyncLogin = (afterLogin, info) => {
   return (dispatch) => {
     fetchLogin(info).then((data) => {

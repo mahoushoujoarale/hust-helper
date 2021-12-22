@@ -6,8 +6,12 @@ import { View, Button, Text } from '@tarojs/components'
 import './index.less'
 
 export default class Detail extends Component {
-  componentWillReceiveProps (nextProps) {
-    console.log(this.props, nextProps)
+  // componentWillReceiveProps (nextProps) {
+  //   console.log(this.props, nextProps)
+  // }
+
+  componentDidMount() {
+    
   }
 
   componentWillUnmount () { }

@@ -1,13 +1,19 @@
+import Taro from "@tarojs/taro";
 import { Component } from "react";
 import { View, Text, Input } from "@tarojs/components";
 import HelpCard from "./HelpCard/index";
 import avatar from "../../assets/avatar.png";
-
+import { connect } from "react-redux";
 import "./index.less";
+import { getAllDisscussions } from '../../api';
 
 class Index extends Component {
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps);
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(this.props, nextProps);
+  // }
+
+  async componentDidMount() {
+    const data = await getAllDisscussions({discussionID: -1})
   }
 
   componentWillUnmount() {}
@@ -45,9 +51,9 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="help-page">
-        <view className="title">求助捞人</view>
-        <view className="content">
+      <View className='help-page'>
+        <view className='title'>求助捞人</view>
+        <view className='content'>
           {this.state.publisheds.map((item, index) => (
             <HelpCard key={index} info={item} />
           ))}
