@@ -20,24 +20,29 @@ export default class Mine extends Component {
       starGet: 50,
       auth: true,
       goodGet: 12,
-      goodCount: 12
+      goodCount: 12,
+      starredDiscussion:[]
     }
   };
 
   async componentDidMount() {
     const userId = Taro.getStorageSync("user_id")
+    const userName = Taro.getStorageSync("user_name")
     let data = await getMyDisscussions({wx_id: userId})
-    const {discussion, starCount, starGet, goodGet, goodCount} = data
+    const {discussion, starCount, starGet, goodGet, goodCount, starredDiscussion} = data
     console.log('my discussion', discussion)
+    console.log('my starred discussion', starredDiscussion)
     this.setState({
       userInfo: {
+        name: userName,
         discussion: discussion || [],
-        // ...this.state.userInfo,
         starCount,
         starGet,
         avatarUrl: MyAvatar,
         goodGet,
         goodCount,
+        auth: userId,
+        starredDiscussion,
       }
     })
   }
@@ -52,6 +57,15 @@ export default class Mine extends Component {
 
   componentDidHide() {}
 
+  toMyPublishedPage = ()=> {
+    Taro.navigateTo({
+      url: `/pages/published/index?discussionsArr=${JSON.stringify(this.state.userInfo.discussion||[])}`
+    })
+  }
+
+  toMyCollections = () => {
+    Taro.navigateTo({ url: `/pages/collection/index?discussionsArr=${JSON.stringify(this.state.userInfo.starredDiscussion||[])}` })
+  }
 
   render() {
     return (
@@ -119,16 +133,14 @@ export default class Mine extends Component {
           <view className='option'>
             <Image
               src={hamburger}
-              onClick={() => Taro.navigateTo({ url: "/pages/published/index" })}
+              onClick={this.toMyPublishedPage}
             />
             我的发布
           </view>
           <view className='option'>
             <Image
               src={chat}
-              onClick={() =>
-                Taro.navigateTo({ url: "/pages/collection/index" })
-              }
+              onClick={this.toMyCollections}
             />
             我的收藏
           </view>

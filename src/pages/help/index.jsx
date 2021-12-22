@@ -41,6 +41,7 @@ class Index extends Component {
 
   async componentDidMount() {
     let {discussion} = await getAllDisscussions({discussionID: -1})
+    discussion = discussion || []
     discussion = discussion.filter((item) => item.type === '0')
     console.log('help discussion', discussion)
     this.setState({

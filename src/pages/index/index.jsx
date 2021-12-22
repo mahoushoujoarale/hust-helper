@@ -71,7 +71,6 @@ class Index extends Component {
         url: '/pages/auth/index'
       })
     }
-    // getAllDisscussions({discussionID:-1}) // TODO:
   }
 
   componentWillReceiveProps(nextProps) {
@@ -112,15 +111,6 @@ class Index extends Component {
             <Banner></Banner>
             <MiddleNav></MiddleNav>
             <Gallery></Gallery>
-            {/* <View
-              onClick={() =>
-                Taro.navigateTo({
-                  url: "/pages/login/index"
-                })
-              }
-            >
-              loginButton
-            </View> */}
           </View>
         )}
         {activeTabIndex === 2 && <Mine></Mine>}

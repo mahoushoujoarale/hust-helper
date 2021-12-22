@@ -9,7 +9,8 @@ const routers = {
   getMyDisscussions: '/user/all',
   postHelp: '/discussion/new',
   starDiscussion: '/discussion/star',
-  goodDiscussion: '/discussion/good'
+  goodDiscussion: '/discussion/good',
+  getDisscussionByID: '/discussion',
 }
 
 export default routers

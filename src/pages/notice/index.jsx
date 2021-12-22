@@ -25,31 +25,31 @@ class Index extends Component {
         avatarUrl: avatar
       },
       {
-        content: "亲，你的平板多少钱？",
-        type: "二手交易",
+        content: "你好，我捡到你的手表了，可以qq",
+        type: "求助捞人",
         title: "发布的标题",
         avatarUrl: avatar
       },
-      {
-        content: "亲，你的平板多少钱？",
-        type: "二手交易",
-        title: "发布的标题",
-        avatarUrl: avatar
-      },
-      {
-        content: "亲，你的平板多少钱？",
-        type: "二手交易",
-        title: "发布的标题",
-        avatarUrl: avatar
-      }
+      // {
+      //   content: "亲，你的平板多少钱？",
+      //   type: "二手交易",
+      //   title: "发布的标题",
+      //   avatarUrl: avatar
+      // },
+      // {
+      //   content: "亲，你的平板多少钱？",
+      //   type: "二手交易",
+      //   title: "发布的标题",
+      //   avatarUrl: avatar
+      // }
     ]
   };
 
   render() {
     return (
-      <View className="notice-page">
-        <view className="title">消息通知</view>
-        <view className="content">
+      <View className='notice-page'>
+        <view className='title'>消息通知</view>
+        <view className='content'>
           {this.state.notices.map((item, index) => (
             <NoticeCard key={index} info={item} />
           ))}

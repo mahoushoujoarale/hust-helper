@@ -73,8 +73,8 @@ class Index extends Component {
     return (
       <View className='help-page-card'>
         <view className='header'>
-          {/* <Image className='user-photo' src={this.props.info.avatarUrl} /> */}
-          <Image className='user-photo' src={avatar} />
+        {/* {this.props.info.authorAvator} */}
+          <Image mode='widthFix' className='user-photo' src={this.props.info.authorAvator} />
           <view className='user-info'>
             <view className='user-name'>{this.props.info.authorName}</view>
             <view className='user-fans'>{this.props.info.starredNumber} 订阅量</view>

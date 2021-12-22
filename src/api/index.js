@@ -50,6 +50,14 @@ request(GET)({
   }
 })
 
+export const getDisscussionByID = (data) =>
+request(GET)({
+  url: getUrl(routers.getDisscussionByID),
+  data: {
+    ...data,
+  }
+})
+
 export const postUserMail = (data) =>
   request(POST)({
     url: getUrl(routers.postUserMail),
@@ -61,6 +69,7 @@ export const postNewUser = (data) =>
     url: getUrl(routers.postNewUser),
     data,
 })
+
 
 
 export const starDiscussion = (data) =>
