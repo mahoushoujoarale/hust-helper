@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { View, Text, Input } from '@tarojs/components'
-import {postUserMail } from '../../api'
+import {postNewUser, postUserMail } from '../../api'
 import { connect } from 'react-redux'
 import Taro from '@tarojs/taro'
 import { login, logout, asyncMailLogin, asyncLogout } from "../../actions/user";
@@ -20,8 +20,10 @@ import './index.less'
 
 class Index extends Component {
   state = {
+    userName: '',
     email: '',
     code: '',
+    gender: '',
     verified: false,
     answer: '',
     showWrongCodePrompt: false,
@@ -31,9 +33,9 @@ class Index extends Component {
     
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(this.props, nextProps)
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log(this.props, nextProps)
+  // }
 
   componentWillUnmount() { }
 
@@ -44,6 +46,18 @@ class Index extends Component {
   handleChangeEmail = (e) => {
     this.setState({
       email: e.detail.value
+    })
+  }
+
+  handleChangeUserName = (e) => {
+    this.setState({
+      userName: e.detail.value
+    })
+  }
+
+  handleChangeGender = (e) => {
+    this.setState({
+      gender: e.detail.value
     })
   }
 
@@ -60,7 +74,7 @@ class Index extends Component {
   }
 
   handleClickAuth = async () => {
-    const {email, verified, code, answer} = this.state
+    const {email, verified, code, answer, userName, gender} = this.state
     if(!email) {
       return
     }
@@ -68,8 +82,25 @@ class Index extends Component {
       if(!code) {
         return
       }
+      console.log('code', code)
+      console.log('ans', answer)
+      console.log('check answer', code, answer)
       if(code == answer) {
         // success
+        console.log('check pass')
+        const data = await postNewUser({
+          wx_id: email,
+          user_name: userName
+        })
+        console.log('create new user', data)
+        Taro.setStorage({
+          key: 'user_name',
+          data: userName
+        })
+        Taro.setStorage({
+          key: 'gender',
+          data: gender === '男'? 0: 1
+        })
         this.props.asyncLogin(this.afterLogin, {
           email,
           user_id: email,
@@ -92,20 +123,21 @@ class Index extends Component {
       this.setState({
         verified: true
       })
-      // const data = await postUserMail({ // FIXME:
-      //   email,
-      //   wx_id: email,
-      // })
+      const data = await postUserMail({
+        email,
+        wx_id: email,
+      })
+      console.log('get ans', data)
       this.setState({
-        // answer: data.answer // FIXME:
-        answer: 123
+        answer: data.answer
+        // answer: 123
       })
       console.log('update',this.state)
     }
   }
 
   render() {
-    const {email, code, verified, answer, showWrongCodePrompt} = this.state;
+    const {email, code, verified, gender, userName, answer, showWrongCodePrompt} = this.state;
 
     return (
       <View className='auth-page'>
@@ -114,12 +146,12 @@ class Index extends Component {
           <Text>欢迎来到帮帮忙</Text>
         </view>
         <view className='form'>
-          <Text className='input-title'>学校</Text>
-          <Input type='text' placeholder='学校全称' placeholderStyle='color: #cacaca' />
+          <Text className='input-title'>用户名</Text>
+          <Input value={userName} onInput={this.handleChangeUserName} type='text' placeholder='输入你的名字' placeholderStyle='color: #cacaca' />
           <Text className='input-title' >学校邮箱</Text>
           <Input value={email} onInput={this.handleChangeEmail} type='text' placeholder='输入你的学校邮箱' placeholderStyle='color: #cacaca' />
           <Text className='input-title'>性别</Text>
-          <Input type='text' placeholder='你是男生还是女生' placeholderStyle='color: #cacaca' />
+          <Input value={gender} onInput={this.handleChangeGender} type='text' placeholder='你是男生还是女生' placeholderStyle='color: #cacaca' />
           <Text className='input-title'>验证码</Text>
           <Input value={code} onInput={this.handleChangeCode} type='text' placeholder='请输入邮箱验证码' placeholderStyle='color: #cacaca' />
           <view className='auth-button' onClick={this.handleClickAuth}>{email && code && answer ? '登录/注册': '发送验证码'}</view>

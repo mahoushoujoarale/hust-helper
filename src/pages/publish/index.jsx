@@ -2,9 +2,11 @@ import { Component } from "react";
 import { View, Input, Picker, Image, Textarea } from "@tarojs/components";
 import { AtImagePicker } from "taro-ui";
 import arrowDown from "../../assets/arrow-down.png";
+import Taro from "@tarojs/taro";
 
 import "./index.less";
 import "./index.scss";
+import { postHelp } from '../../api';
 
 class Index extends Component {
   // componentWillReceiveProps(nextProps) {
@@ -23,6 +25,7 @@ class Index extends Component {
     title: '',
     content: '',
     tag: "二手交易",
+    type: 2,
     tradeInfo: {
       originPrice: 56,
       currentPricd: 30,
@@ -34,11 +37,42 @@ class Index extends Component {
     selector: ["9成新", "8成新", "7成新", "5成新", "凑合能用"],
     selectorChecked: "",
     pictures: []
-  };
+  }
 
-  handlePublish() {
+  async handlePublish() {
+    const {type, title, content, pictures, lostInfo} = this.state
+    const userId = Taro.getStorageSync("user_id")
+    const userName = Taro.getStorageSync("user_name")
+    const gender = Taro.getStorageSync("gender")
+
     console.log('publish', this.state)
-
+    postHelp({
+      type: ''+ type,
+      author_wxid: userId,
+      author_name: userName,
+      context: content,
+      title,
+      // picture: pictures[0]
+      lost_place: lostInfo.position
+    })
+    .then((data) => {
+      Taro.showToast({
+        title: "发布成功！",
+        icon: "success",
+        duration: 1000,
+      });
+      setTimeout(() => {
+        Taro.reLaunch({
+          url: "/pages/index/index",
+        });
+      }, 1000);
+    })
+    .finally(() => {
+      Taro.hideLoading();
+      this.setState({
+        isPublish: false,
+      });
+    });
   }
 
   handleChangeTitle = (e) => {
@@ -88,33 +122,33 @@ class Index extends Component {
             <view
               className='tag'
               style={{
-                backgroundColor: this.state.tag === "二手交易" ? "#ddffbc" : ""
+                backgroundColor: this.state.type === 2 ? "#ddffbc" : ""
               }}
-              onClick={() => this.setState({ tag: "二手交易" })}
+              onClick={() => this.setState({ type: 2 })}
             >
               二手交易
             </view>
             <view
               className='tag'
               style={{
-                backgroundColor: this.state.tag === "失物招领" ? "#ddffbc" : ""
+                backgroundColor: this.state.type === 1 ? "#ddffbc" : ""
               }}
-              onClick={() => this.setState({ tag: "失物招领" })}
+              onClick={() => this.setState({type: 1 })}
             >
               失物招领
             </view>
             <view
               className='tag'
               style={{
-                backgroundColor: this.state.tag === "求助捞人" ? "#ddffbc" : ""
+                backgroundColor: this.state.type === 0 ? "#ddffbc" : ""
               }}
-              onClick={() => this.setState({ tag: "求助捞人" })}
+              onClick={() => this.setState({ type: 0 })}
             >
               求助捞人
             </view>
           </view>
           <view className='option-box'>
-            {this.state.tag === "二手交易" ? (
+            {this.state.type === 2 ? (
               <view className='trade-option'>
                 <view className='trade-item'>
                   原价
@@ -142,7 +176,7 @@ class Index extends Component {
                   </Picker>
                 </view>
               </view>
-            ) : this.state.tag === "失物招领" ? (
+            ) : this.state.type === 1 ? (
               <view className='lost-option'>
                 <view className='title'>丢失地点：</view>
                 <Input type='text' placeholder='请输入丢失地点' />

@@ -5,25 +5,25 @@ import { camelizeKeys } from "humps";
 export const request = (method) => (config) =>
   new Promise((resolve, reject) => {
     const success = (res) => {
-      // console.log("success", res);
+      console.log("success", res);
       if (res.statusCode === 401) {
         Taro.setStorageSync("token", "");
         Taro.redirectTo({
           url: "/pages/index/index?expired=1",
         });
         // Taro.hideLoading();
-      } else if (res.data.status !== 200) {
+      } else if (res.statusCode !== 200) {
         // Taro.hideLoading();
         Taro.showToast({
           icon: "none",
-          title: res.data.err_msg || "网络错误，请检查网络",
+          title: res.err_msg || "网络错误，请检查网络",
           duration: 2000,
         });
       } else {
         // Taro.hideLoading();
-        console.log("success", camelizeKeys(res.data.data));
+        console.log("camelizekey", camelizeKeys(res.data));
 
-        resolve(camelizeKeys(res.data.data));
+        resolve(camelizeKeys(res.data));
       }
     };
 

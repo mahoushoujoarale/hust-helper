@@ -13,7 +13,8 @@ class Index extends Component {
   // }
 
   async componentDidMount() {
-    const data = await getAllDisscussions({discussionID: -1})
+    const {discussion} = await getAllDisscussions({discussionID: -1})
+    console.log('help page', discussion)
   }
 
   componentWillUnmount() {}

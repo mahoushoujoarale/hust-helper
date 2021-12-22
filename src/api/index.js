@@ -49,5 +49,28 @@ export const postUserMail = (data) =>
     data,
 })
 
+export const postNewUser = (data) =>
+  request(POST)({
+    url: getUrl(routers.postNewUser),
+    data,
+})
+
+
+export const postHelp = (data) =>
+  request(POST)({
+    url: getUrl(routers.postHelp),
+    data,
+})
+export const postLost = (data) =>
+  request(POST)({
+    url: getUrl(routers.postHelp),
+    data,
+})
+export const postTrade = (data) =>
+  request(POST)({
+    url: getUrl(routers.postHelp),
+    data,
+})
+
 
 
