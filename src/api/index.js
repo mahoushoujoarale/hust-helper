@@ -42,6 +42,13 @@ export const getAllDisscussions = (data) =>
     }
   })
 
+export const getMyDisscussions = (data) =>
+request(GET)({
+  url: getUrl(routers.getMyDisscussions),
+  data: {
+    ...data,
+  }
+})
 
 export const postUserMail = (data) =>
   request(POST)({
@@ -55,6 +62,18 @@ export const postNewUser = (data) =>
     data,
 })
 
+
+export const starDiscussion = (data) =>
+  request(POST)({
+    url: getUrl(routers.starDiscussion),
+    data,
+})
+
+export const goodDiscussion = (data) =>
+  request(POST)({
+    url: getUrl(routers.goodDiscussion),
+    data,
+})
 
 export const postHelp = (data) =>
   request(POST)({

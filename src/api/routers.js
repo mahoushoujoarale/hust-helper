@@ -6,7 +6,10 @@ const routers = {
   postUserMail: '/user/mail',
   postUserCode: '/user/code',
   getAllDisscussions: '/discussion',
+  getMyDisscussions: '/user/all',
   postHelp: '/discussion/new',
+  starDiscussion: '/discussion/star',
+  goodDiscussion: '/discussion/good'
 }
 
 export default routers

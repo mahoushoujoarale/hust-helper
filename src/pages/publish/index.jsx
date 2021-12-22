@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
 import { View, Input, Picker, Image, Textarea } from "@tarojs/components";
 import { AtImagePicker } from "taro-ui";
 import arrowDown from "../../assets/arrow-down.png";
@@ -13,12 +13,6 @@ class Index extends Component {
   //   console.log(this.props, nextProps);
   // }
 
-  componentWillUnmount() {}
-
-  componentDidShow() {}
-
-  componentDidHide() {}
-
   state = {
     // title: "时间简史",
     // content: `在当当网上购入，是霍金先生的一本著作。虽然霍金先生把物理学变得简单了，但是碍于专业知识不够，就没有阅读下去，闲置很久了，所以想出给一个想读它的人。`,
@@ -27,20 +21,28 @@ class Index extends Component {
     tag: "二手交易",
     type: 2,
     tradeInfo: {
-      originPrice: 56,
-      currentPricd: 30,
-      brandNew: 10
+      origin: '',
+      current: '',
+      // brandNew: 10
     },
     lostInfo: {
-      position: "西十二N404"
+      place: '',
+      time: '',
     },
-    selector: ["9成新", "8成新", "7成新", "5成新", "凑合能用"],
+    selector: ["9成新", "8成新", "7成新", "5成新", "凑合用"],
     selectorChecked: "",
     pictures: []
   }
 
+  componentWillUnmount() {}
+
+  componentDidShow() {}
+
+  componentDidHide() {}
+
+
   async handlePublish() {
-    const {type, title, content, pictures, lostInfo} = this.state
+    const {type, title, content, pictures, lostInfo, tradeInfo} = this.state
     const userId = Taro.getStorageSync("user_id")
     const userName = Taro.getStorageSync("user_name")
     const gender = Taro.getStorageSync("gender")
@@ -53,7 +55,12 @@ class Index extends Component {
       context: content,
       title,
       // picture: pictures[0]
-      lost_place: lostInfo.position
+      // lost
+      lost_place: lostInfo.place,
+      lost_time: lostInfo.time,
+      // trade
+      price_origin: tradeInfo.origin,
+      price_current: tradeInfo.current
     })
     .then((data) => {
       Taro.showToast({
@@ -87,8 +94,46 @@ class Index extends Component {
     })
   }
 
+  handleChangeOrigin = (e) => {
+    this.setState({
+      tradeInfo: {
+        origin: e.detail.value,
+        current: this.state.tradeInfo.current
+      }
+    })
+  }
+
+  handleChangeCurrent = (e) => {
+    this.setState({
+      tradeInfo: {
+        origin: this.state.tradeInfo.origin,
+        current: e.detail.value
+      }
+    })
+  }
+
+  handleChangePlace = (e) => {
+    this.setState({
+      lostInfo: {
+        place: e.detail.value,
+        time: this.state.lostInfo.time,
+      }
+    })
+  }
+  
+  handleChangeTime = (e) => {
+    this.setState({
+      lostInfo: {
+        time: e.detail.value,
+        place: this.state.lostInfo.place,
+      }
+    })
+  }
+  
+
+
   render() {
-    const {title, content} = this.state
+    const {title, content, tradeInfo, lostInfo} = this.state
 
     return (
       <View className='publish-page'>
@@ -152,11 +197,11 @@ class Index extends Component {
               <view className='trade-option'>
                 <view className='trade-item'>
                   原价
-                  <Input type='number' maxlength={6} placeholder='原价' />
+                  <Input value={tradeInfo.origin} onInput={this.handleChangeOrigin} type='number' maxlength={6} placeholder='原价' />
                 </view>
                 <view className='trade-item'>
                   现价
-                  <Input type='number' maxlength={6} placeholder='现价' />
+                  <Input value={tradeInfo.current} onInput={this.handleChangeCurrent} type='number' maxlength={6} placeholder='现价' />
                 </view>
                 <view className='trade-item'>
                   几成新
@@ -177,10 +222,16 @@ class Index extends Component {
                 </view>
               </view>
             ) : this.state.type === 1 ? (
-              <view className='lost-option'>
-                <view className='title'>丢失地点：</view>
-                <Input type='text' placeholder='请输入丢失地点' />
-              </view>
+              <Fragment>
+                <view className='lost-option'>
+                  <view className='title'>丢失地点：</view>
+                  <Input value={lostInfo.place} onInput={this.handleChangePlace} type='text' placeholder='请输入丢失地点' />
+                </view>
+                <view className='lost-option'>
+                  <view className='title'>丢失时间：</view>
+                  <Input value={lostInfo.time} onInput={this.handleChangeTime} type='text' placeholder='请输入丢失时间' />
+                </view>
+              </Fragment>
             ) : (
               <view className='help-option'></view>
             )}

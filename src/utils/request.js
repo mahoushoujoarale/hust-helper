@@ -21,7 +21,7 @@ export const request = (method) => (config) =>
         });
       } else {
         // Taro.hideLoading();
-        console.log("camelizekey", camelizeKeys(res.data));
+        console.log("camelizedkey", camelizeKeys(res.data));
 
         resolve(camelizeKeys(res.data));
       }

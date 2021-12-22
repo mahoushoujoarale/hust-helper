@@ -39,42 +39,42 @@ class Index extends Component {
 
   render() {
     return (
-      <View className="lost-detail-page">
-        <view className="title">失物招领</view>
-        <view className="content">
-          <View className="lost-detail-page-card">
-            <view className="header">
-              <Image className="user-photo" src={this.state.avatarUrl} />
-              <view className="user-info">
-                <view className="user-name">{this.state.name}</view>
-                <view className="user-fans">{this.state.fansCount}订阅量</view>
+      <View className='lost-detail-page'>
+        <view className='title'>失物招领</view>
+        <view className='content'>
+          <View className='lost-detail-page-card'>
+            <view className='header'>
+              <Image className='user-photo' src={this.state.avatarUrl} />
+              <view className='user-info'>
+                <view className='user-name'>{this.state.name}</view>
+                <view className='user-fans'>{this.state.fansCount}订阅量</view>
               </view>
-              <view className="follow-button">关注</view>
+              <view className='follow-button'>收藏</view>
             </view>
-            <view className="title">{this.state.title}</view>
-            <view className="content">
-              <view className="content-wrapper">{this.state.content}</view>
-              <view className="pictures">
+            <view className='title'>{this.state.title}</view>
+            <view className='content'>
+              <view className='content-wrapper'>{this.state.content}</view>
+              <view className='pictures'>
                 {this.state.picUrls.map((item, index) => (
-                  <Image key={index} className="picture" src={item} />
+                  <Image key={index} className='picture' src={item} />
                 ))}
               </view>
             </view>
-            <view className="content-bottom">
-              <view className="position">
-                <Image className="icon" src={position} />
-                <view className="position-content">{this.state.position}</view>
+            <view className='content-bottom'>
+              <view className='position'>
+                <Image className='icon' src={position} />
+                <view className='position-content'>{this.state.position}</view>
               </view>
-              <view className="report">
-                <Image className="icon" src={caution} />
+              <view className='report'>
+                <Image className='icon' src={caution} />
                 举报
               </view>
             </view>
           </View>
-          <view className="buttons">
-            <view className="button">
-              <Image className="icon" src={comment} />
-              <view className="count">{this.state.commentCount}</view>
+          <view className='buttons'>
+            <view className='button'>
+              <Image className='icon' src={comment} />
+              <view className='count'>{this.state.commentCount}</view>
             </view>
           </view>
         </view>
